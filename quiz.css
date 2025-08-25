@@ -1,0 +1,228 @@
+:root {
+    --primary-color: #004080;       /* deep navy blue */
+    --secondary-color: #0066cc;     /* vibrant blue */
+    --accent-color: #ff9800;        /* warm orange accent */
+    --light-color: #fff3e0;         /* soft orange background */
+    --background-color: #f0f6fc;    /* very light blue-gray */
+    --text-color: #0d1b2a;          /* deep navy text */
+    --card-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    --section-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
+    --transition-speed: 0.35s;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', 'Arial', sans-serif;
+}
+
+body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.7;
+    overflow-x: hidden;
+    animation: fadeIn 0.8s ease-in-out;
+}
+
+/* Container */
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 30px;
+    animation: slideIn 0.6s ease-out;
+}
+
+/* Header */
+header {
+    text-align: center;
+    padding: 40px 0 50px;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    border-radius: 20px;
+    box-shadow: var(--section-shadow);
+    position: relative;
+    overflow: hidden;
+}
+
+header h1 {
+    font-size: 3rem;
+    font-weight: 800;
+    margin-bottom: 10px;
+    animation: bounceIn 1.2s ease;
+}
+
+header p {
+    font-size: 1.2rem;
+    max-width: 700px;
+    margin: 0 auto;
+    opacity: 0.95;
+}
+
+/* Background animation in header */
+header::after {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle at center, rgba(255,255,255,0.2), transparent 70%);
+    animation: rotateBg 20s linear infinite;
+    z-index: 0;
+}
+header * {
+    position: relative;
+    z-index: 1;
+}
+
+/* Quiz section */
+.quiz-section {
+    background-color: white;
+    border-radius: 20px;
+    padding: 40px;
+    margin: 60px 0;
+    box-shadow: var(--section-shadow);
+    position: relative;
+    overflow: hidden;
+    animation: fadeInUp 0.8s ease;
+}
+
+.quiz-section h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: var(--primary-color);
+    font-size: 2.2rem;
+    font-weight: 700;
+}
+
+/* Quiz Container */
+.quiz-container {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+/* Questions */
+.quiz-question {
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+    font-weight: 600;
+    color: var(--primary-color);
+    padding-left: 15px;
+    border-left: 4px solid var(--accent-color);
+    animation: fadeIn 0.8s ease;
+}
+
+/* Options */
+.quiz-options {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 30px;
+}
+
+.quiz-option {
+    background-color: #f1f5f9;
+    padding: 15px 20px;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all var(--transition-speed) ease;
+    border: 2px solid transparent;
+    box-shadow: var(--card-shadow);
+    position: relative;
+    overflow: hidden;
+}
+
+.quiz-option:hover {
+    background-color: var(--light-color);
+    border-color: var(--accent-color);
+    transform: translateY(-3px) scale(1.02);
+}
+
+.quiz-option.selected {
+    background: linear-gradient(135deg, var(--accent-color), var(--secondary-color));
+    color: white;
+    border-color: var(--primary-color);
+    font-weight: bold;
+    animation: pulse 0.5s ease;
+}
+
+/* Buttons */
+.quiz-btn {
+    background: linear-gradient(135deg, var(--accent-color), var(--secondary-color));
+    color: white;
+    border: none;
+    padding: 14px 35px;
+    border-radius: 50px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    display: inline-block;
+    font-size: 1.1rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    text-decoration: none;
+    text-align: center;
+    animation: fadeInUp 1s ease;
+}
+
+.quiz-btn:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+}
+
+/* Result Message */
+.result-message {
+    text-align: center;
+    margin-top: 25px;
+    padding: 15px;
+    border-radius: 12px;
+    font-weight: bold;
+    font-size: 1.2rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 0.8s ease;
+}
+
+.result-correct {
+    background-color: #e6f7e6;
+    color: #1b5e20;
+    border-left: 6px solid #1b5e20;
+}
+
+.result-incorrect {
+    background-color: #fdecea;
+    color: #c62828;
+    border-left: 6px solid #c62828;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideIn {
+    from { opacity: 0; transform: translateX(-30px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes bounceIn {
+    0% { transform: scale(0.8); opacity: 0; }
+    60% { transform: scale(1.05); opacity: 1; }
+    100% { transform: scale(1); }
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+@keyframes rotateBg {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}

@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EcoLearn: Sustainable Living Guide</title>
+    <link rel="stylesheet" href="sustainable.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>EcoLearn: Sustainable Living Guide</h1>
+            <p>Transform your daily habits with simple, practical steps toward a more sustainable lifestyle. Learn how small changes can make a big environmental impact.</p>
+        </header>
+        
+        <div class="category-nav">
+            <button class="category-btn active" data-category="all">All Tips</button>
+            <button class="category-btn" data-category="home">Home & Energy</button>
+            <button class="category-btn" data-category="food">Food & Kitchen</button>
+            <button class="category-btn" data-category="transport">Transportation</button>
+            <button class="category-btn" data-category="shopping">Shopping</button>
+            <button class="category-btn" data-category="water">Water Conservation</button>
+        </div>
+        
+        <div class="tip-grid" id="tip-grid">
+            <div class="tip-card" data-category="home">
+                <div class="card-icon">
+                    <i class="fas fa-lightbulb"></i>
+                </div>
+                <div class="card-content">
+                    <h3>Switch to LED Lighting</h3>
+                    <p>LED bulbs use 75% less energy and last 25 times longer than incandescent bulbs. This simple switch can reduce your electricity bill and carbon footprint significantly.</p>
+                    <div class="impact-badge">Energy Saver</div>
+                </div>
+            </div>
+            
+            <div class="tip-card" data-category="home">
+                <div class="card-icon">
+                    <i class="fas fa-thermometer-half"></i>
+                </div>
+                <div class="card-content">
+                    <h3>Optimize Your Thermostat</h3>
+                    <p>Set your thermostat 7-10°F lower when away from home. Use programmable or smart thermostats to automatically adjust temperature and save up to 10% on heating and cooling costs.</p>
+                    <div class="impact-badge">Cost Saver</div>
+                </div>
+            </div>
+            
+            <div class="tip-card" data-category="food">
+                <div class="card-icon">
+                    <i class="fas fa-carrot"></i>
+                </div>
+                <div class="card-content">
+                    <h3>Eat More Plant-Based Meals</h3>
+                    <p>Reducing meat consumption even one day per week can significantly lower your carbon footprint. Plant-based meals require less water and energy to produce.</p>
+                    <div class="impact-badge">Climate Action</div>
+                </div>
+            </div>
+            
+            <div class="tip-card" data-category="food">
+                <div class="card-icon">
+                    <i class="fas fa-seedling"></i>
+                </div>
+                <div class="card-content">
+                    <h3>Start Composting</h3>
+                    <p>Composting food scraps reduces methane emissions from landfills and creates nutrient-rich soil for plants. About 30% of household waste can be composted.</p>
+                    <div class="impact-badge">Waste Reducer</div>
+                </div>
+            </div>
+            
+            <div class="tip-card" data-category="transport">
+                <div class="card-icon">
+                    <i class="fas fa-bicycle"></i>
+                </div>
+                <div class="card-content">
+                    <h3>Choose Active Transportation</h3>
+                    <p>Walk, bike, or use public transit when possible. Transportation accounts for about 29% of greenhouse gas emissions. Even short trips make a difference.</p>
+                    <div class="impact-badge">Health Boost</div>
+                </div>
+            </div>
+            
+            <div class="tip-card" data-category="transport">
+                <div class="card-icon">
+                    <i class="fas fa-car"></i>
+                </div>
+                <div class="card-content">
+                    <h3>Maintain Your Vehicle</h3>
+                    <p>Keep tires properly inflated and get regular tune-ups. A well-maintained car can improve fuel efficiency by up to 10% and reduce harmful emissions.</p>
+                    <div class="impact-badge">Efficiency</div>
+                </div>
+            </div>
+            
+            <div class="tip-card" data-category="shopping">
+                <div class="card-icon">
+                    <i class="fas fa-shopping-bag"></i>
+                </div>
+                <div class="card-content">
+                    <h3>Bring Reusable Bags</h3>
+                    <p>Use reusable shopping bags to reduce plastic waste. One reusable bag can eliminate the need for hundreds of plastic bags over its lifetime.</p>
+                    <div class="impact-badge">Waste Reducer</div>
+                </div>
+            </div>
+            
+            <div class="tip-card" data-category="shopping">
+                <div class="card-icon">
+                    <i class="fas fa-recycle"></i>
+                </div>
+                <div class="card-content">
+                    <h3>Buy Secondhand First</h3>
+                    <p>Consider thrift stores, consignment shops, and online marketplaces before buying new. Extending product lifecycles reduces manufacturing demand and waste.</p>
+                    <div class="impact-badge">Resource Saver</div>
+                </div>
+            </div>
+            
+            <div class="tip-card" data-category="water">
+                <div class="card-icon">
+                    <i class="fas fa-tint"></i>
+                </div>
+                <div class="card-content">
+                    <h3>Fix Leaky Faucets</h3>
+                    <p>A dripping faucet can waste over 3,000 gallons per year. Quick repairs save water, money, and prevent unnecessary waste of this precious resource.</p>
+                    <div class="impact-badge">Water Saver</div>
+                </div>
+            </div>
+            
+            <div class="tip-card" data-category="water">
+                <div class="card-icon">
+                    <i class="fas fa-shower"></i>
+                </div>
+                <div class="card-content">
+                    <h3>Take Shorter Showers</h3>
+                    <p>Reducing shower time by just 2 minutes can save up to 1,500 gallons of water per year. Install low-flow showerheads for even greater savings.</p>
+                    <div class="impact-badge">Water Saver</div>
+                </div>
+            </div>
+            
+            <div class="tip-card" data-category="home">
+                <div class="card-icon">
+                    <i class="fas fa-plug"></i>
+                </div>
+                <div class="card-content">
+                    <h3>Unplug Electronics</h3>
+                    <p>Electronics in standby mode still consume energy. Unplugging devices when not in use or using power strips can reduce "phantom" energy consumption by up to 10%.</p>
+                    <div class="impact-badge">Energy Saver</div>
+                </div>
+            </div>
+            
+            <div class="tip-card" data-category="food">
+                <div class="card-icon">
+                    <i class="fas fa-apple-alt"></i>
+                </div>
+                <div class="card-content">
+                    <h3>Plan Your Meals</h3>
+                    <p>Meal planning reduces food waste and saves money. Plan weekly menus, make shopping lists, and use leftovers creatively to minimize waste.</p>
+                    <div class="impact-badge">Smart Planning</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="info-section">
+            <div class="info-container">
+                <div class="info-text">
+                    <h2>Why Sustainable Living Matters</h2>
+                    <p>Sustainable living is about making choices that meet our needs while preserving resources for future generations. Every small action contributes to a larger positive impact on our planet's health.</p>
+                    <p>By adopting sustainable practices, we can reduce our carbon footprint, save money, improve our health, and help create a more resilient and equitable world for everyone.</p>
+                </div>
+                <div class="info-image">
+                    <i class="fas fa-leaf"></i>
+                </div>
+            </div>
+        </div>
+        
+        <div class="stats-container">
+            <div class="stat-item">
+                <div class="stat-number">30%</div>
+                <div class="stat-text">Energy savings with efficient appliances</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">2,000</div>
+                <div class="stat-text">Gallons saved with low-flow fixtures</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">40%</div>
+                <div class="stat-text">Of food is wasted globally</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">$500+</div>
+                <div class="stat-text">Annual savings from sustainable practices</div>
+            </div>
+        </div>
+        
+        <div class="challenge-section">
+            <h2>30-Day Sustainable Living Challenge</h2>
+            <p>Ready to make a difference? Try these weekly challenges to build sustainable habits:</p>
+            <div class="challenge-grid">
+                <div class="challenge-week">
+                    <h4>Week 1: Energy Focus</h4>
+                    <ul>
+                        <li>Switch to LED bulbs</li>
+                        <li>Unplug unused electronics</li>
+                        <li>Adjust thermostat settings</li>
+                        <li>Air-dry clothes instead of using dryer</li>
+                    </ul>
+                </div>
+                <div class="challenge-week">
+                    <h4>Week 2: Water Conservation</h4>
+                    <ul>
+                        <li>Take 5-minute showers</li>
+                        <li>Fix any leaky faucets</li>
+                        <li>Use dishwasher only when full</li>
+                        <li>Collect rainwater for plants</li>
+                    </ul>
+                </div>
+                <div class="challenge-week">
+                    <h4>Week 3: Waste Reduction</h4>
+                    <ul>
+                        <li>Use reusable bags and bottles</li>
+                        <li>Start composting food scraps</li>
+                        <li>Buy only what you need</li>
+                        <li>Repurpose containers creatively</li>
+                    </ul>
+                </div>
+                <div class="challenge-week">
+                    <h4>Week 4: Green Transportation</h4>
+                    <ul>
+                        <li>Walk or bike for short trips</li>
+                        <li>Carpool or use public transport</li>
+                        <li>Combine errands into one trip</li>
+                        <li>Work from home when possible</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <div class="calculator-section">
+            <h2>Calculate Your Impact</h2>
+            <div class="calculator-container">
+                <div class="calculator-item">
+                    <h4>LED Bulb Savings Calculator</h4>
+                    <div class="calc-inputs">
+                        <label>Number of bulbs: <input type="number" id="bulbs" value="10" min="1"></label>
+                        <label>Hours used daily: <input type="number" id="hours" value="5" min="1"></label>
+                        <button onclick="calculateLEDSavings()">Calculate Savings</button>
+                    </div>
+                    <div id="led-result" class="calc-result"></div>
+                </div>
+                
+                <div class="calculator-item">
+                    <h4>Water Usage Calculator</h4>
+                    <div class="calc-inputs">
+                        <label>Current shower time (minutes): <input type="number" id="current-shower" value="10" min="1"></label>
+                        <label>Target shower time (minutes): <input type="number" id="target-shower" value="5" min="1"></label>
+                        <button onclick="calculateWaterSavings()">Calculate Savings</button>
+                    </div>
+                    <div id="water-result" class="calc-result"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="back-button">
+        <a href="index.html" class="back-btn"><i class="fas fa-arrow-left"></i> Back to Home</a>
+    </div>
+    
+    <footer>
+        <div class="footer-content">
+            <h3>Share Your Sustainable Journey</h3>
+            <p>Inspire others by sharing these sustainable living tips and join the movement toward a greener future!</p>
+            
+            <div class="social-sharing">
+                <a href="https://www.facebook.com/sharer/sharer.php?u=https://ecolearn.org/sustainable" target="_blank" title="Share on Facebook">
+                    <i class="fab fa-facebook"></i> Share on Facebook
+                </a>
+                <a href="https://twitter.com/intent/tweet?text=Check%20out%20these%20sustainable%20living%20tips%20from%20EcoLearn!&url=https://ecolearn.org/sustainable" target="_blank" title="Share on Twitter">
+                    <i class="fab fa-twitter"></i> Share on Twitter
+                </a>
+                <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://ecolearn.org/sustainable&title=Sustainable%20Living%20Guide&summary=Practical%20tips%20for%20eco-friendly%20living" target="_blank" title="Share on LinkedIn">
+                    <i class="fab fa-linkedin"></i> Share on LinkedIn
+                </a>
+                <a href="mailto:?subject=Sustainable%20Living%20Tips&body=I%20thought%20you%20might%20find%20these%20sustainable%20living%20tips%20helpful:%20https://ecolearn.org/sustainable" title="Share via Email">
+                    <i class="fas fa-envelope"></i> Share via Email
+                </a>
+            </div>
+            
+            <p>&copy; 2025 EcoLearn. All rights reserved.</p>
+        </div>
+    </footer>
+    
+    <div class="back-to-top" id="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <script src="sustainable.js"></script>
+</body>
+</html>

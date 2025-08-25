@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Card Matching Game</title>
+    <link rel="stylesheet" href="login.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <!-- Decorative mini cards in corner -->
+            <div class="cards-decoration">
+                <div class="card-mini"></div>
+                <div class="card-mini"></div>
+                <div class="card-mini"></div>
+                <div class="card-mini"></div>
+            </div>
+            
+            <h1>Card Matching Game</h1>
+            <p>Test your memory and have fun!</p>
+        </div>
+        
+        <!-- Authentication Container -->
+        <div id="auth-container" class="auth-container">
+            <div class="tabs" id="tabs">
+                <div class="tab active" id="login-tab">Login</div>
+                <div class="tab" id="register-tab">Register</div>
+            </div>
+            
+            <!-- Login Form -->
+            <form id="login-form">
+                <div class="form-group">
+                    <label for="login-username">Username</label>
+                    <input type="text" id="login-username" placeholder="Enter your username" required>
+                    <div class="error-message" id="login-username-error">Please enter a valid username</div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="login-password">Password</label>
+                    <input type="password" id="login-password" placeholder="Enter your password" required>
+                    <div class="error-message" id="login-password-error">Please enter your password</div>
+                </div>
+                
+                <div class="form-group">
+                    <button type="submit" id="login-btn">Login</button>
+                    <div class="error-message" id="login-error">Invalid username or password</div>
+                </div>
+                
+                <div class="form-footer">
+                    <p>Don't have an account? <a id="go-to-register">Register here</a></p>
+                </div>
+            </form>
+            
+            <!-- Register Form -->
+            <form id="register-form" style="display: none;">
+                <div class="form-group">
+                    <label for="register-username">Username</label>
+                    <input type="text" id="register-username" placeholder="Choose a username" required>
+                    <div class="error-message" id="register-username-error">Username must be at least 3 characters</div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="register-email">Email</label>
+                    <input type="email" id="register-email" placeholder="Enter your email" required>
+                    <div class="error-message" id="register-email-error">Please enter a valid email address</div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="register-password">Password</label>
+                    <input type="password" id="register-password" placeholder="Create a password" required>
+                    <div class="error-message" id="register-password-error">Password must be at least 6 characters</div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="register-confirm">Confirm Password</label>
+                    <input type="password" id="register-confirm" placeholder="Confirm your password" required>
+                    <div class="error-message" id="register-confirm-error">Passwords do not match</div>
+                </div>
+                
+                <div class="form-group">
+                    <button type="submit" id="register-btn">Create Account</button>
+                    <div class="error-message" id="register-error">Registration failed</div>
+                </div>
+                
+                <div class="form-footer">
+                    <p>Already have an account? <a id="go-to-login">Login here</a></p>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="login.js"></script>
+</body>
+</html>

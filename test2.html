@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Card Matching Game</title>
+    <link rel="stylesheet" href="test2.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        // Authentication check - Run before anything else loads
+        (function() {
+            const isAuthenticated = localStorage.getItem('isAuthenticated') === 'true';
+            const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+            
+            if (!isAuthenticated || !currentUser) {
+                window.location.href = 'login.html';
+            }
+        })();
+    </script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Card Matching Game</h1>
+            <div class="stats-container">
+                <div class="stats">
+                    <div class="moves">Moves: <span id="moves-count">0</span></div>
+                    <div class="timer">Time: <span id="timer">00:00</span></div>
+                    <div class="score">Score: <span id="score">0</span></div>
+                </div>
+                <div class="controls">
+                    <button id="restart" class="control-btn"><i class="fas fa-redo"></i> Restart</button>
+                    <button id="sound-toggle" class="control-btn"><i class="fas fa-volume-up"></i></button>
+                    <button id="info-btn" class="control-btn"><i class="fas fa-info-circle"></i></button>
+                    <button id="logout-btn" class="control-btn"><i class="fas fa-sign-out-alt"></i> Logout</button>
+                </div>
+            </div>
+            <div class="difficulty-selector">
+                <button class="difficulty-btn active" data-difficulty="easy">Easy</button>
+                <button class="difficulty-btn" data-difficulty="medium">Medium</button>
+                <button class="difficulty-btn" data-difficulty="hard">Hard</button>
+            </div>
+            <div class="theme-selector">
+                <button class="theme-btn active" data-theme="recycling">♻️ Recycling</button>
+                <button class="theme-btn" data-theme="ocean">🌊 Ocean</button>
+                <button class="theme-btn" data-theme="energy">⚡ Energy</button>
+            </div>
+            <div class="popup-container" id="instruction-popup">
+                <div class="popup instruction-popup">
+                    <h2>How to Play</h2>
+                    <div class="instruction-content">
+                        <p><strong>Goal:</strong> Find all matching pairs of cards before time runs out.</p>
+                        
+                        <div class="instruction-step">
+                            <div class="step-number">1</div>
+                            <p>Click any card to flip it over</p>
+                        </div>
+                        
+                        <div class="instruction-step">
+                            <div class="step-number">2</div>
+                            <p>Click another card to find a match</p>
+                        </div>
+                        
+                        <div class="instruction-step">
+                            <div class="step-number">3</div>
+                            <p>If they match, they'll disappear and you earn points</p>
+                        </div>
+                        
+                        <div class="instruction-step">
+                            <div class="step-number">4</div>
+                            <p>If they don't match, remember their positions for later</p>
+                        </div>
+                        
+                        <div class="instruction-tips">
+                            <p><strong>Tips:</strong></p>
+                            <ul>
+                                <li>Choose difficulty levels: Easy, Medium, or Hard</li>
+                                <li>Select themes to learn about: Recycling, Ocean, or Energy</li>
+                                <li>Click the ℹ️ icon on cards to learn educational facts</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <button id="close-instruction" class="primary-btn">Got it!</button>
+                    <button id="dont-show-again" class="secondary-btn">Don't show again</button>
+                </div>
+            </div>
+
+        </header>
+        
+        <div class="game-container">
+            <div id="game-board"></div>
+        </div>
+        
+        <div class="popup-container" id="result-popup">
+            <div class="popup">
+                <div class="confetti" id="confetti"></div>
+                <h2 id="result-message">You Won!</h2>
+                <div class="result-stats">
+                    <p>Moves: <span id="result-moves">0</span></p>
+                    <p>Time: <span id="result-time">00:00</span></p>
+                    <p>Score: <span id="result-score">0</span></p>
+                </div>
+                <button id="new-game" class="primary-btn">New Game</button>
+            </div>
+        </div>
+
+        <div class="popup-container" id="info-popup">
+            <div class="popup info-popup">
+                <h2>Recycling Facts</h2>
+                <div id="recycling-fact" class="recycling-fact">
+                    <p>Did you know? Recycling one aluminum can saves enough energy to run a TV for three hours.</p>
+                </div>
+                <button id="close-info" class="primary-btn">Close</button>
+                <button id="next-fact" class="secondary-btn">Next Fact</button>
+            </div>
+        </div>
+    </div>
+    
+    <div class="card-info-container" id="card-info">
+        <div class="card-info">
+            <span class="close-info">&times;</span>
+            <h3 id="card-info-title"></h3>
+            <p id="card-info-content"></p>
+        </div>
+    </div>
+
+    <script src="test2.js"></script>
+    <script>
+        // Add logout functionality
+        document.getElementById('logout-btn').addEventListener('click', function() {
+            localStorage.removeItem('isAuthenticated');
+            window.location.href = 'login.html';
+        });
+        
+        // Display username in the game interface
+        document.addEventListener('DOMContentLoaded', function() {
+            const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+            if (currentUser) {
+                const headerElement = document.querySelector('header h1');
+                const welcomeMsg = document.createElement('div');
+                welcomeMsg.className = 'welcome-user';
+                welcomeMsg.textContent = `Player: ${currentUser.username}`;
+                welcomeMsg.style.fontSize = '1rem';
+                welcomeMsg.style.marginTop = '5px';
+                welcomeMsg.style.textAlign = 'center';
+                welcomeMsg.style.color = '#555';
+                
+                headerElement.parentNode.insertBefore(welcomeMsg, headerElement.nextSibling);
+            }
+        });
+    </script>
+</body>
+</html>
